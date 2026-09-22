@@ -1,10 +1,19 @@
 import { createRoot } from "react-dom/client";
 import { useAgent } from "agents/react";
 import { useAgentChat } from "@cloudflare/ai-chat/react";
+import { useRef } from "react";
 
 function App() {
   const agent = useAgent({ agent: "ChatAgent" });
   const { messages, sendMessage, status } = useAgentChat({ agent });
+
+    // Patch known bug: getHttpUrl() returns "" before WS connects
+  const nativeGetHttpUrlRef = useRef(agent.getHttpUrl);
+  agent.getHttpUrl = () => {
+    const url = nativeGetHttpUrlRef.current?.() ?? "";
+    return url || "http://localhost";
+  };
+
 
   return (
     <div style={{ padding: 20, fontFamily: "sans-serif" }}>

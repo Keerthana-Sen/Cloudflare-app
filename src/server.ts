@@ -7,8 +7,8 @@ export class ChatAgent extends AIChatAgent<Env> {
   async onChatMessage() {
     const workersai = createWorkersAI({ binding: this.env.AI });
     const result = streamText({
-      // model: workersai("@cf/zai-org/glm-4.7-flash"), 
-      model: workersai("@cf/meta/llama-3.3-70b-instruct-fp8-fast"),
+       model: workersai("@cf/zai-org/glm-4.7-flash"), 
+      // model: workersai("@cf/meta/llama-3.3-70b-instruct-fp8-fast"),
       system: "You are a helpful assistant.",
       messages: await convertToModelMessages(this.messages),
     });
