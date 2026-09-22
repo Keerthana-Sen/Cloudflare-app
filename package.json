@@ -4,11 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
-    "start": "vite dev",
-    "deploy": "vite build && wrangler deploy",
-    "types": "wrangler types env.d.ts --include-runtime false"
-  },
+  "dev": "vite dev",
+  "start": "vite dev",
+  "build": "vite build",
+  "deploy": "vite build && wrangler deploy",
+  "types": "wrangler types env.d.ts --include-runtime false"
+},
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.57.2",
     "@types/node": "^26.6.2",
