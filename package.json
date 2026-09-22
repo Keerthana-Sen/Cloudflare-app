@@ -21,6 +21,7 @@
     "wrangler": "^4.136.0"
   },
   "dependencies": {
+    "@ai-sdk/react": "^4.0.114",
     "@cloudflare/ai-chat": "^0.12.0",
     "ai": "^7.0.107",
     "react": "^19.3.0",
