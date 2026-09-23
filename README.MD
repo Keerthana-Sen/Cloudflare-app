@@ -53,13 +53,6 @@ npm run deploy
 
 Builds the client and Worker, then deploys via Wrangler.
 
-## Notes / known quirks encountered while building
-
-- `vite.config.ts` **must** be named `.ts`, not `.tsx` — Vite silently mishandles the latter, which caused WebSocket connections to fail with no server-side error at all.
-- The `agents` + `@cloudflare/ai-chat` packages have a known bug ([cloudflare/agents#1356](https://github.com/cloudflare/agents/issues/1356)) where `useAgent()`'s `getHttpUrl()` returns an empty string before the WebSocket connects, which crashes `useAgentChat()`. Worked around by patching `getHttpUrl` with a fallback URL before it's used.
-- Durable Object binding `name` must exactly match the exported class name for `routeAgentRequest` to route correctly.
-- `wrangler.jsonc`'s `assets` config needs `"run_worker_first": ["/agents/*"]` so WebSocket/agent routes aren't intercepted by static asset serving.
-
 ## Prompt history
 
 See `PROMPT_HISTORY.md` for the AI-assisted development log, as required by the assignment.
