@@ -38,7 +38,7 @@ function App() {
         <header style={styles.header}>
           <div>
             <h1 style={styles.title}>AI Agent Chat</h1>
-            <p style={styles.subtitle}>Llama 3.3 · Workers AI · Durable Objects</p>
+            <p style={styles.subtitle}>GLM-4.7-Flash · Workers AI · Durable Objects</p>
           </div>
           <button
             type="button"
