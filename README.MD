@@ -10,7 +10,7 @@ This project was built for Cloudflare's AI-powered application assignment, which
 
 | Requirement | Implementation |
 |---|---|
-| LLM | Llama 3.3 (`@cf/meta/llama-3.3-70b-instruct-fp8-fast`) via Workers AI |
+| LLM | Glm-4.7-flash (`@cf/zai-org/glm-4.7-flash`) via Workers AI |
 | Workflow / coordination | `ChatAgent` — a Durable Object built on Cloudflare's Agents SDK (`AIChatAgent`) |
 | User input | React chat UI, served via Vite, communicating over WebSocket |
 | Memory / state | Conversation history persisted in the Durable Object, survives page refreshes |
@@ -18,7 +18,7 @@ This project was built for Cloudflare's AI-powered application assignment, which
 ## Tech stack
 
 - **Cloudflare Workers** — compute runtime
-- **Workers AI** — hosted LLM inference (Llama 3.3)
+- **Workers AI** — hosted LLM inference
 - **Durable Objects** (via `agents` SDK's `AIChatAgent`) — stateful, single-instance conversation agent
 - **Vite + `@cloudflare/vite-plugin`** — combined local dev server for the Worker and frontend
 - **React** — chat UI
